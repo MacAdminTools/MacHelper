@@ -8,5 +8,6 @@
 
 import Foundation
 
-print("Hello, World!")
+let macHelper = MacHelper()
+macHelper.run()
 
