@@ -16,6 +16,9 @@
 		4E7CFA4421229B9A0076B79D /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA4221229B9A0076B79D /* AppNotification.swift */; };
 		4E7CFA472123A3350076B79D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA462123A3350076B79D /* MainController.swift */; };
 		4E7CFA482123A3350076B79D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA462123A3350076B79D /* MainController.swift */; };
+		4E7CFA492126598B0076B79D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBA211E733500B188D3 /* Constant.swift */; };
+		4E7CFA4B212D07CD0076B79D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA4A212D07CD0076B79D /* NotificationManager.swift */; };
+		4E7CFA4C212D07CD0076B79D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA4A212D07CD0076B79D /* NotificationManager.swift */; };
 		4EED0DB2211E6D6B00B188D3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DB1211E6D6B00B188D3 /* main.swift */; };
 		4EED0DB9211E6EFA00B188D3 /* MacHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DB8211E6EFA00B188D3 /* MacHelper.swift */; };
 		4EED0DBB211E733500B188D3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBA211E733500B188D3 /* Constant.swift */; };
@@ -55,6 +58,7 @@
 		4E7CFA3B212293340076B79D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		4E7CFA4221229B9A0076B79D /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
 		4E7CFA462123A3350076B79D /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		4E7CFA4A212D07CD0076B79D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		4EED0DAE211E6D6B00B188D3 /* MacHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EED0DB1211E6D6B00B188D3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4EED0DB8211E6EFA00B188D3 /* MacHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHelper.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				4EED0DDE211E7F0D00B188D3 /* ScenarioManager.swift */,
+				4E7CFA4A212D07CD0076B79D /* NotificationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				4E7CFA3921228FBF0076B79D /* Signal.swift in Sources */,
 				4E7CFA472123A3350076B79D /* MainController.swift in Sources */,
 				4EED0DBE211E73B300B188D3 /* Scenario.swift in Sources */,
+				4E7CFA4B212D07CD0076B79D /* NotificationManager.swift in Sources */,
 				4EED0DC0211E75DF00B188D3 /* Scene.swift in Sources */,
 				4EED0DDF211E7F0D00B188D3 /* ScenarioManager.swift in Sources */,
 				4EED0DF1212276C700B188D3 /* Script.swift in Sources */,
@@ -283,10 +289,12 @@
 				4E7CFA3E2122954D0076B79D /* ActionBlock.swift in Sources */,
 				4EED0DDB211E7C1A00B188D3 /* Scenario.swift in Sources */,
 				4E7CFA3A21228FBF0076B79D /* Signal.swift in Sources */,
+				4E7CFA492126598B0076B79D /* Constant.swift in Sources */,
 				4EED0DF22122772700B188D3 /* Script.swift in Sources */,
 				4EED0DDC211E7D7200B188D3 /* Scene.swift in Sources */,
 				4EED0DEE21226E5200B188D3 /* Trigger.swift in Sources */,
 				4E7CFA4421229B9A0076B79D /* AppNotification.swift in Sources */,
+				4E7CFA4C212D07CD0076B79D /* NotificationManager.swift in Sources */,
 				4E7CFA482123A3350076B79D /* MainController.swift in Sources */,
 				4EED0DE0211E805200B188D3 /* ScenarioManager.swift in Sources */,
 			);

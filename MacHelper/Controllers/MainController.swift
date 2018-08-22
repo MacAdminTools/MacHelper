@@ -12,10 +12,20 @@ class MainController {
     
     static let shared = MainController()
     
-    var runningScenario = [RunningScenario]()
-    var scenarios = [Scenario]()
+    static var runningScenarios = [RunningScenario]()
+    static var scenarios = [Scenario]()
     
-    func loadScenario (path: String) {
+    static func play (path: String) {
+        guard let scenario = ScenarioManager.loadScenario(path: path)
+            else{
+            return
+        }
+        
+        NotificationsManager.shared.run()
+        self.scenarios.append(scenario)
+        let runningScenario = ScenarioManager.generateRunningScenario(scenario: scenario, path: path)
+        self.runningScenarios.append(runningScenario)
+        ScenarioManager.runScenario(scenario: scenario, runningScenario: runningScenario)
         
     }
     

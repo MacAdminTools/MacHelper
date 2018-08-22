@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct Trigger: Decodable {
     
     var conditions: [Condition]
@@ -33,10 +31,6 @@ struct Trigger: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.conditions = try Trigger.decodeConditions(container: container)
         actionBlocks = try container.decode([ActionBlock].self, forKey: .actionBlocks)
-        
-        for cond in self.conditions {
-            print(cond)
-        }
         
     }
     

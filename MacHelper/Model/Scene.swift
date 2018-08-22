@@ -8,11 +8,24 @@
 
 import Foundation
 
-struct Scene: Codable {
+protocol SceneAndNode {
+    var id: String { get }
+    var name: String { get }
+    var startAnchors: [String] { get }
+}
+
+protocol RunningSceneAndNode {
+    var id: String { get }
+    var name: String { get }
+    var status: RunningStatus { get }
+    var exitAnchors: [String] { get }
+}
+
+struct Scene: Codable, SceneAndNode, SearchElement {
     
     let id: String
     let name: String
-    let anchors: [String]
+    let startAnchors: [String]
     var nodes: [Node]
     
 }

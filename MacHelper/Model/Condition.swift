@@ -10,6 +10,7 @@ import Foundation
 
 protocol Condition: Decodable {
     
+    var name: String { get }
     func test(completion: @escaping (Bool) -> Void)
     
 }

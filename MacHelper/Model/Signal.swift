@@ -1,5 +1,5 @@
 //
-//  Script.swift
+//  Signal.swift
 //  MacHelper
 //
 //  Created by mathieu on 14.08.18.
@@ -8,31 +8,22 @@
 
 import Foundation
 
-struct Script: Condition, Action {
+struct Signal: Condition {
     
     let name: String
-    //let language: ScriptLanguage
-    let script: String
-    //let user: UserType
-    //let scriptType: ScriptType
-    
+
     func test(completion: @escaping (Bool) -> Void) {
-        completion(false)
-    }
-    
-    func launch(completion: ((NSNumber) -> Void)?) {
-        
+        let res = NotificationsManager.shared.isSignal(signal: self.name)
+        completion(res)
     }
     
     private enum CodingKeys: String, CodingKey {
         case name
-        case script
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         name = try values.decode(String.self, forKey: .name)
-        script = try values.decode(String.self, forKey: .script)
     }
     
 }

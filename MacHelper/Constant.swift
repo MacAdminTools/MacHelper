@@ -9,9 +9,14 @@
 import Foundation
 
 extension Notification.Name {
-    static let HelperShouldQuit = Notification.Name("com.nestec.MacHelper.HelperShouldQuit")
+    static let HelperShouldQuit = Notification.Name("ch.altab.MacHelper.HelperShouldQuit")
+    static let HostNotification = Notification.Name("ch.altab.MacHelper.HostNotification")
 }
 
-enum ScenarioStatus: String {
-    case initial, running, terminated
+extension Collection {
+    
+    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
 }

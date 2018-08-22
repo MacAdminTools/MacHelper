@@ -6,12 +6,8 @@
 	<string>idtoto</string>
 	<key>name</key>
 	<string>nametoto</string>
-	<key>path</key>
-	<string>pathtoto</string>
 	<key>version</key>
 	<string>versiontot</string>
-	<key>runAtLoad</key>
-	<false/>
 	<key>scenes</key>
 	<array>
 		<dict>
@@ -19,11 +15,17 @@
 			<string>idscene</string>
 			<key>name</key>
 			<string>namescene</string>
+			<key>startAnchors</key>
+			<array/>
 			<key>nodes</key>
 			<array>
 				<dict>
 					<key>id</key>
 					<string>3424234</string>
+					<key>name</key>
+					<string>test node</string>
+					<key>startAnchors</key>
+					<array/>
 					<key>triggers</key>
 					<array>
 						<dict>
@@ -62,26 +64,90 @@
 							<array>
 								<dict>
 									<key>type</key>
+									<string>script</string>
+									<key>name</key>
+									<string>name script 2</string>
+									<key>script</key>
+									<string>script script 2</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>actionBlocks</key>
+							<array>
+								<dict>
+									<key>parentCode</key>
+									<integer>0</integer>
+									<key>action</key>
+									<dict>
+										<key>type</key>
+										<string>notification</string>
+										<key>name</key>
+										<string>act notif</string>
+									</dict>
+									<key>actionBlocks</key>
+									<array/>
+								</dict>
+								<dict>
+									<key>parentCode</key>
+									<integer>0</integer>
+									<key>action</key>
+									<dict>
+										<key>type</key>
+										<string>script</string>
+										<key>name</key>
+										<string>act script</string>
+										<key>script</key>
+										<string>asasdsad</string>
+									</dict>
+									<key>actionBlocks</key>
+									<array/>
+								</dict>
+							</array>
+							<key>conditions</key>
+							<array>
+								<dict>
+									<key>type</key>
 									<string>signal</string>
 									<key>name</key>
-									<string>name script</string>
+									<string>name signal</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>actionBlocks</key>
+							<array>
+								<dict>
+									<key>parentCode</key>
+									<integer>0</integer>
+									<key>action</key>
+									<dict>
+										<key>type</key>
+										<string>notification</string>
+										<key>name</key>
+										<string>act notif</string>
+									</dict>
+									<key>actionBlocks</key>
+									<array/>
 								</dict>
 								<dict>
-									<key>type</key>
-									<string>script</string>
-									<key>name</key>
-									<string>name script</string>
-									<key>script</key>
-									<string>script script</string>
+									<key>parentCode</key>
+									<integer>0</integer>
+									<key>action</key>
+									<dict>
+										<key>type</key>
+										<string>script</string>
+										<key>name</key>
+										<string>act script</string>
+										<key>script</key>
+										<string>asasdsad</string>
+									</dict>
+									<key>actionBlocks</key>
+									<array/>
 								</dict>
-								<dict>
-									<key>type</key>
-									<string>script</string>
-									<key>name</key>
-									<string>name script</string>
-									<key>script</key>
-									<string>script script</string>
-								</dict>
+							</array>
+							<key>conditions</key>
+							<array>
 								<dict>
 									<key>type</key>
 									<string>script</string>
@@ -93,12 +159,6 @@
 							</array>
 						</dict>
 					</array>
-					<key>name</key>
-					<string>test node</string>
-					<key>nodeAnchors</key>
-					<array/>
-					<key>replay</key>
-					<false/>
 				</dict>
 			</array>
 		</dict>

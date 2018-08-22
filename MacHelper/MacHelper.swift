@@ -20,7 +20,19 @@ class MacHelper {
         }
     }
     
+    static func load(path: String) {
+        if let scenario = ScenarioManager.loadScenario(path: path) {
+            print("Scenario \(scenario.name) loaded successfully")
+        }else{
+            print("Scenario failed loading")
+        }
+    }
+    
     func run(path: String = "") {
+        
+        /*let mainController = MainController()
+        mainController.play(path: path)*/
+        MainController.play(path: path)
         
         while !shouldQuit {
             RunLoop.current.run(until: Date(timeIntervalSinceNow: shouldQuitCheckInterval))

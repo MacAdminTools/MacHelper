@@ -8,38 +8,68 @@
 
 import Foundation
 
-struct Scenario: Decodable {
-    
+struct Scenario: Decodable, SearchElement {
+    let id: String
+    let name: String
+    let version: String
+    var scenes = [Scene]()
+}
+
+protocol SearchElement {
+    var id: String { get }
+}
+
+class RunningScenario: Codable, SearchElement {
     let id: String
     let name: String
     let path: String
-    let version: String
-    let runAtLoad: Bool
-    var scenes = [Scene]()
-
-}
-
-struct RunningScenario: Codable {
-    let scenarioId: String
-    let name: String
+    var status: RunningScenarioStatus
     var scenes: [RunningScene]
+    
+    init(id: String, name: String, path: String, status: RunningScenarioStatus, scenes: [RunningScene]) {
+        self.id = id
+        self.name = name
+        self.path = path
+        self.status = status
+        self.scenes = scenes
+    }
 }
 
-struct RunningScene: Codable {
-    let sceneId: String
+class RunningScene: Codable, RunningSceneAndNode, SearchElement {
+    let id: String
     let name: String
     var status: RunningStatus
     var exitAnchors: [String]
     var nodes: [RunningNode]
+    
+    init(id: String, name: String, status: RunningStatus, exitAnchors: [String], nodes: [RunningNode]) {
+        self.id = id
+        self.name = name
+        self.status = status
+        self.exitAnchors = exitAnchors
+        self.nodes = nodes
+    }
 }
 
-struct RunningNode: Codable {
-    let nodeId: String
+class RunningNode: Codable, RunningSceneAndNode, SearchElement {
+    let id: String
     let name: String
     var status: RunningStatus
     var exitAnchors: [String]
+    var test = false
+    
+    init(id: String, name: String, status: RunningStatus, exitAnchors: [String]) {
+        self.id = id
+        self.name = name
+        self.status = status
+        self.exitAnchors = exitAnchors
+    }
 }
 
 enum RunningStatus: String, Codable {
     case initial, running, terminated
+}
+
+enum RunningScenarioStatus: String, Codable {
+    case initial, pause, running, terminated
 }

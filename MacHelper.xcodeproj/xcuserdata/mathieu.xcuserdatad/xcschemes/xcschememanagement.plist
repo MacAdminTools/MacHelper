@@ -4,6 +4,26 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>MH load.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>MH play.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>MH signal.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>MH status.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>MacHelper.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +37,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4EED0DAD211E6D6B00B188D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4EED0DD0211E7AB300B188D3</key>
 		<dict>
 			<key>primary</key>

@@ -42,7 +42,7 @@ struct ActionBlock: Decodable {
         
         actionBlocks = try container.decode([ActionBlock].self, forKey: .actionBlocks)
         parentCode = try container.decode(Int.self, forKey: .parentCode)
-        print(self.action)
+        //print(self.action)
         
     }
     
