@@ -29,7 +29,7 @@ struct Trigger: Decodable {
     init(from decoder: Decoder) throws
     {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.conditions = try Trigger.decodeConditions(container: container)
+        conditions = try Trigger.decodeConditions(container: container)
         actionBlocks = try container.decode([ActionBlock].self, forKey: .actionBlocks)
         
     }

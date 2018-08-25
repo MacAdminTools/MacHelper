@@ -14,11 +14,6 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>MH signal.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
-		</dict>
 		<key>MH status.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -29,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>MacHelperNotifier.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>MacHelperTest.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -37,6 +37,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4E7CFA50212E0B4F0076B79D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4EED0DAD211E6D6B00B188D3</key>
 		<dict>
 			<key>primary</key>

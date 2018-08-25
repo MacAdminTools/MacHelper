@@ -21,6 +21,7 @@ struct ActionBlock: Decodable {
     enum ActionTypes: String, Decodable {
         case script = "script"
         case notification = "notification"
+        case addAnchor = "addAnchor"
     }
     
     enum ActionTypeKey: String, CodingKey {
@@ -38,6 +39,8 @@ struct ActionBlock: Decodable {
             action = try container.decode(Script.self, forKey: .action)
         case .notification:
             action = try container.decode(AppNotification.self, forKey: .action)
+        case .addAnchor:
+            action = try container.decode(AddAnchor.self, forKey: .action)
         }
         
         actionBlocks = try container.decode([ActionBlock].self, forKey: .actionBlocks)

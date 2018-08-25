@@ -30,13 +30,24 @@ class MacHelper {
     
     func run(path: String = "") {
         
-        /*let mainController = MainController()
-        mainController.play(path: path)*/
-        MainController.play(path: path)
+        MainController.shared.play(path: path)
         
         while !shouldQuit {
             RunLoop.current.run(until: Date(timeIntervalSinceNow: shouldQuitCheckInterval))
         }
+    }
+    
+    static func printUsage() {
+        
+        let executableName = (CommandLine.arguments[0] as NSString).lastPathComponent
+        
+        print("usage:")
+        print("\(executableName) -a string1 string2")
+        print("or")
+        print("\(executableName) -p string")
+        print("or")
+        print("\(executableName) -h to show usage information")
+        print("Type \(executableName) without an option to enter interactive mode.")
     }
     
     deinit {

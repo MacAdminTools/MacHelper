@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E279D89212F8DF700308422 /* AddAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E279D88212F8DF700308422 /* AddAnchor.swift */; };
 		4E7CFA3921228FBF0076B79D /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA3821228FBF0076B79D /* Signal.swift */; };
 		4E7CFA3A21228FBF0076B79D /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA3821228FBF0076B79D /* Signal.swift */; };
 		4E7CFA3C212293340076B79D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA3B212293340076B79D /* Action.swift */; };
@@ -19,6 +20,10 @@
 		4E7CFA492126598B0076B79D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBA211E733500B188D3 /* Constant.swift */; };
 		4E7CFA4B212D07CD0076B79D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA4A212D07CD0076B79D /* NotificationManager.swift */; };
 		4E7CFA4C212D07CD0076B79D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA4A212D07CD0076B79D /* NotificationManager.swift */; };
+		4E7CFA54212E0B4F0076B79D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA53212E0B4F0076B79D /* main.swift */; };
+		4E7CFA59212E0BC90076B79D /* MacHelperNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA58212E0BC90076B79D /* MacHelperNotifier.swift */; };
+		4E7CFA5A212E0C2C0076B79D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA4A212D07CD0076B79D /* NotificationManager.swift */; };
+		4E7CFA5B212E0C610076B79D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBA211E733500B188D3 /* Constant.swift */; };
 		4EED0DB2211E6D6B00B188D3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DB1211E6D6B00B188D3 /* main.swift */; };
 		4EED0DB9211E6EFA00B188D3 /* MacHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DB8211E6EFA00B188D3 /* MacHelper.swift */; };
 		4EED0DBB211E733500B188D3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBA211E733500B188D3 /* Constant.swift */; };
@@ -42,6 +47,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		4E7CFA4F212E0B4F0076B79D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		4EED0DAC211E6D6B00B188D3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,11 +68,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E279D88212F8DF700308422 /* AddAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnchor.swift; sourceTree = "<group>"; };
 		4E7CFA3821228FBF0076B79D /* Signal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signal.swift; sourceTree = "<group>"; };
 		4E7CFA3B212293340076B79D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		4E7CFA4221229B9A0076B79D /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
 		4E7CFA462123A3350076B79D /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		4E7CFA4A212D07CD0076B79D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		4E7CFA51212E0B4F0076B79D /* MacHelperNotifier */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacHelperNotifier; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E7CFA53212E0B4F0076B79D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4E7CFA58212E0BC90076B79D /* MacHelperNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHelperNotifier.swift; sourceTree = "<group>"; };
 		4EED0DAE211E6D6B00B188D3 /* MacHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EED0DB1211E6D6B00B188D3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4EED0DB8211E6EFA00B188D3 /* MacHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHelper.swift; sourceTree = "<group>"; };
@@ -78,6 +96,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4E7CFA4E212E0B4F0076B79D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4EED0DAB211E6D6B00B188D3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,11 +128,21 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		4E7CFA52212E0B4F0076B79D /* MacHelperNotifier */ = {
+			isa = PBXGroup;
+			children = (
+				4E7CFA53212E0B4F0076B79D /* main.swift */,
+				4E7CFA58212E0BC90076B79D /* MacHelperNotifier.swift */,
+			);
+			path = MacHelperNotifier;
+			sourceTree = "<group>";
+		};
 		4EED0DA5211E6D6B00B188D3 = {
 			isa = PBXGroup;
 			children = (
 				4EED0DB0211E6D6B00B188D3 /* MacHelper */,
 				4EED0DD2211E7AB300B188D3 /* MacHelperTest */,
+				4E7CFA52212E0B4F0076B79D /* MacHelperNotifier */,
 				4EED0DAF211E6D6B00B188D3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,6 +152,7 @@
 			children = (
 				4EED0DAE211E6D6B00B188D3 /* MacHelper */,
 				4EED0DD1211E7AB300B188D3 /* MacHelperTest.xctest */,
+				4E7CFA51212E0B4F0076B79D /* MacHelperNotifier */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +183,7 @@
 				4E7CFA3821228FBF0076B79D /* Signal.swift */,
 				4E7CFA3B212293340076B79D /* Action.swift */,
 				4E7CFA4221229B9A0076B79D /* AppNotification.swift */,
+				4E279D88212F8DF700308422 /* AddAnchor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +210,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4E7CFA50212E0B4F0076B79D /* MacHelperNotifier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E7CFA55212E0B4F0076B79D /* Build configuration list for PBXNativeTarget "MacHelperNotifier" */;
+			buildPhases = (
+				4E7CFA4D212E0B4F0076B79D /* Sources */,
+				4E7CFA4E212E0B4F0076B79D /* Frameworks */,
+				4E7CFA4F212E0B4F0076B79D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacHelperNotifier;
+			productName = MacHelperNotifier;
+			productReference = 4E7CFA51212E0B4F0076B79D /* MacHelperNotifier */;
+			productType = "com.apple.product-type.tool";
+		};
 		4EED0DAD211E6D6B00B188D3 /* MacHelper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4EED0DB5211E6D6B00B188D3 /* Build configuration list for PBXNativeTarget "MacHelper" */;
@@ -217,6 +271,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = altab;
 				TargetAttributes = {
+					4E7CFA50212E0B4F0076B79D = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 					4EED0DAD211E6D6B00B188D3 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -239,6 +296,7 @@
 			targets = (
 				4EED0DAD211E6D6B00B188D3 /* MacHelper */,
 				4EED0DD0211E7AB300B188D3 /* MacHelperTest */,
+				4E7CFA50212E0B4F0076B79D /* MacHelperNotifier */,
 			);
 		};
 /* End PBXProject section */
@@ -255,10 +313,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4E7CFA4D212E0B4F0076B79D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E7CFA5A212E0C2C0076B79D /* NotificationManager.swift in Sources */,
+				4E7CFA54212E0B4F0076B79D /* main.swift in Sources */,
+				4E7CFA59212E0BC90076B79D /* MacHelperNotifier.swift in Sources */,
+				4E7CFA5B212E0C610076B79D /* Constant.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4EED0DAA211E6D6B00B188D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E279D89212F8DF700308422 /* AddAnchor.swift in Sources */,
 				4EED0DB2211E6D6B00B188D3 /* main.swift in Sources */,
 				4E7CFA3C212293340076B79D /* Action.swift in Sources */,
 				4E7CFA4321229B9A0076B79D /* AppNotification.swift in Sources */,
@@ -303,6 +373,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		4E7CFA56212E0B4F0076B79D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T5223UFA4Z;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		4E7CFA57212E0B4F0076B79D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T5223UFA4Z;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		4EED0DB3211E6D6B00B188D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -475,6 +565,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4E7CFA55212E0B4F0076B79D /* Build configuration list for PBXNativeTarget "MacHelperNotifier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E7CFA56212E0B4F0076B79D /* Debug */,
+				4E7CFA57212E0B4F0076B79D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4EED0DA9211E6D6B00B188D3 /* Build configuration list for PBXProject "MacHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

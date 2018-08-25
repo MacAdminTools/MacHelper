@@ -18,7 +18,6 @@ protocol RunningSceneAndNode {
     var id: String { get }
     var name: String { get }
     var status: RunningStatus { get }
-    var exitAnchors: [String] { get }
 }
 
 struct Scene: Codable, SceneAndNode, SearchElement {

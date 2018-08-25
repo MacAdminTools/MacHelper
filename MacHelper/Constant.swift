@@ -10,7 +10,9 @@ import Foundation
 
 extension Notification.Name {
     static let HelperShouldQuit = Notification.Name("ch.altab.MacHelper.HelperShouldQuit")
+    static let ElementTerminated = Notification.Name("ch.altab.MacHelper.ElementTerminated")
     static let HostNotification = Notification.Name("ch.altab.MacHelper.HostNotification")
+    static let AddAnchor = Notification.Name("ch.altab.MacHelper.AddAnchor")
 }
 
 extension Collection {

@@ -17,8 +17,8 @@ struct AppNotification: Action {
     //let interval: Double
     //let command: String
     
-    func launch(completion: ((NSNumber) -> Void)?) {
-        
+    func launch(completion: ((Int) -> Void)) {
+        completion(0)
     }
     
     private enum CodingKeys: String, CodingKey {

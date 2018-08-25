@@ -10,6 +10,6 @@ import Foundation
 
 protocol Action: Decodable {
     
-    func launch(completion: ((NSNumber) -> Void)?)
+    func launch(completion: ((Int) -> Void))
     
 }

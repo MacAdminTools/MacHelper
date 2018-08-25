@@ -29,7 +29,7 @@ class NotificationsManager {
             switch type {
             case "signal":
                 if let name = dic["name"] as? String {
-                    print("Signal received: \(name)")
+                    print("      Signal received: \(name)")
                     //LogManager.shared.log(line: "Signal received: \(name)")
                     self.addSignal(signal: name)
                 }

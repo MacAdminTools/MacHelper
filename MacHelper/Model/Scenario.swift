@@ -23,6 +23,7 @@ class RunningScenario: Codable, SearchElement {
     let id: String
     let name: String
     let path: String
+    var exitAnchors = [String]()
     var status: RunningScenarioStatus
     var scenes: [RunningScene]
     
@@ -39,14 +40,13 @@ class RunningScene: Codable, RunningSceneAndNode, SearchElement {
     let id: String
     let name: String
     var status: RunningStatus
-    var exitAnchors: [String]
+    var exitAnchors = [String]()
     var nodes: [RunningNode]
     
-    init(id: String, name: String, status: RunningStatus, exitAnchors: [String], nodes: [RunningNode]) {
+    init(id: String, name: String, status: RunningStatus, nodes: [RunningNode]) {
         self.id = id
         self.name = name
         self.status = status
-        self.exitAnchors = exitAnchors
         self.nodes = nodes
     }
 }
@@ -55,14 +55,12 @@ class RunningNode: Codable, RunningSceneAndNode, SearchElement {
     let id: String
     let name: String
     var status: RunningStatus
-    var exitAnchors: [String]
     var test = false
     
-    init(id: String, name: String, status: RunningStatus, exitAnchors: [String]) {
+    init(id: String, name: String, status: RunningStatus) {
         self.id = id
         self.name = name
         self.status = status
-        self.exitAnchors = exitAnchors
     }
 }
 
@@ -72,4 +70,8 @@ enum RunningStatus: String, Codable {
 
 enum RunningScenarioStatus: String, Codable {
     case initial, pause, running, terminated
+}
+
+enum NotificationElement {
+    case scenario, scene
 }

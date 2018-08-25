@@ -9,46 +9,30 @@
 import Foundation
 
 if CommandLine.arguments.count > 1 {
-    
     let command = CommandLine.arguments[1]
-    
-    if command == "-load" {
+    switch command {
+    case "-load":
         if let path = CommandLine.arguments[safe: 2] {
             MacHelper.load(path: path)
         }else{
             print("Path is missing")
+            MacHelper.printUsage()
         }
-    }
-    
-    if command == "-play" {
+    case "-play":
         if let path = CommandLine.arguments[safe: 2] {
             let macHelper = MacHelper()
             macHelper.run(path: path)
         }else{
             print("Path is missing")
+            MacHelper.printUsage()
         }
+    default:
+        print("Unknown command")
+        MacHelper.printUsage()
     }
-    
-    if command == "-status" {
-        if let idScenario = CommandLine.arguments[safe: 2] {
-            ScenarioManager.printStatus(id: idScenario)
-        }else{
-            print("Status is missing")
-        }
-    }
-    
-    if command == "-signal" {
-        if let signal = CommandLine.arguments[safe: 2] {
-            NotificationsManager.sendSignal(signal: signal)
-        }else{
-            print("Signal is missing")
-        }
-    }
-    
 } else {
-    //let macHelper = MacHelper()
-    //macHelper.run()
+    let macHelper = MacHelper()
+    macHelper.run(path: "")
 }
-
 
 
