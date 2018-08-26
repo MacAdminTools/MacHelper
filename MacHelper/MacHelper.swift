@@ -28,9 +28,14 @@ class MacHelper {
         }
     }
     
-    func run(path: String = "") {
+    func play(path: String = "") {
         
-        MainController.shared.play(path: path)
+        if path == "" {
+            MainController.shared.play()
+        }else{
+            MainController.shared.play(path: path)
+        }
+        
         
         while !shouldQuit {
             RunLoop.current.run(until: Date(timeIntervalSinceNow: shouldQuitCheckInterval))

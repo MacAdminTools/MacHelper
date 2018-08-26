@@ -32,10 +32,19 @@ class ScenarioManager {
         
         return nil
     }
+    static func runAllScenario (scenarios: [Scenario], runningScenarios: [RunningScenario]) {
+        scenarios.forEach { (scenario) in
+            if let runningScenario = runningScenarios.filter({ (rs) -> Bool in
+                rs.id == scenario.id
+            })[safe: 0]{
+                runScenario(scenario: scenario, runningScenario: runningScenario)
+            }
+        }
+    }
     
     static func runScenario (scenario: Scenario, runningScenario: RunningScenario) {
         
-        guard let initialScenes = ScenarioManager.getInitialElements(elements: scenario.scenes, runningElements: runningScenario.scenes, exitAnchors: runningScenario.exitAnchors) as? [Scene]
+        guard let initialScenes = getInitialElements(elements: scenario.scenes, runningElements: runningScenario.scenes, exitAnchors: runningScenario.exitAnchors) as? [Scene]
             else {return}
         
         if initialScenes.count == 0 && (runningScenario.scenes.filter{$0.status == .running}.count == 0) || runningScenario.status == .terminated {
@@ -45,38 +54,38 @@ class ScenarioManager {
         }else{
             if runningScenario.status == .initial {print("START SCENARIO: \(scenario.name)")}
             runningScenario.status = .running
-            initialScenes.forEach{ ScenarioManager.runScene(scenario: scenario, scene: $0, runningScenario: runningScenario)}
-            ScenarioManager.saveRunningStatus(runningScenario: runningScenario)
+            initialScenes.forEach{ runScene(scenario: scenario, scene: $0, runningScenario: runningScenario)}
+            saveRunningStatus(runningScenario: runningScenario)
         }
     }
     
     static func runScene (scenario: Scenario, scene: Scene, runningScenario: RunningScenario){
         guard let runningScene = runningScenario.scenes.filter({ (runningscene) -> Bool in runningscene.id == scene.id})[safe: 0],
-            let initialNodes = ScenarioManager.getInitialElements(elements: scene.nodes, runningElements: runningScene.nodes, exitAnchors: runningScene.exitAnchors) as? [Node]
+            let initialNodes = getInitialElements(elements: scene.nodes, runningElements: runningScene.nodes, exitAnchors: runningScene.exitAnchors) as? [Node]
             else {return}
         
         if initialNodes.count == 0 && (runningScene.nodes.filter{$0.status == .running}.count == 0) || runningScene.status == .terminated {
             runningScene.status = .terminated
-            ScenarioManager.saveRunningStatus(runningScenario: runningScenario)
+            saveRunningStatus(runningScenario: runningScenario)
             print("  END SCENE: \(scene.name)")
             NotificationCenter.default.post(name: .ElementTerminated, object: nil, userInfo: ["type": NotificationElement.scene, "scenario": scenario, "runningScenario": runningScenario])
         }else{
             if runningScene.status == .initial {print("  START SCENE: \(scene.name)")}
             runningScene.status = .running
-            ScenarioManager.saveRunningStatus(runningScenario: runningScenario)
-            initialNodes.forEach{ScenarioManager.runNode(scenario: scenario, scene: scene, node: $0, runningScene: runningScene, completion: {
-                ScenarioManager.runScene(scenario: scenario, scene: scene, runningScenario: runningScenario)
+            saveRunningStatus(runningScenario: runningScenario)
+            initialNodes.forEach{runNode(node: $0, runningScene: runningScene, completion: {
+                runScene(scenario: scenario, scene: scene, runningScenario: runningScenario)
             })}
         }
     }
     
-    static func runNode (scenario: Scenario, scene: Scene, node: Node, runningScene: RunningScene, completion:@escaping ()->()){
+    static func runNode (node: Node, runningScene: RunningScene, completion:@escaping ()->()){
         guard let runningNode = runningScene.nodes.filter({ (runningnode) -> Bool in runningnode.id == node.id})[safe: 0]
             else {return}
         runningNode.status = .running
         print("    START NODE: \(node.name)")
-        ScenarioManager.testNodeLoop(triggers: node.triggers, runningNode: runningNode) { (trigger) in
-            ScenarioManager.executeTrigger(blocks: trigger.actionBlocks, completion: {
+        testNodeLoop(triggers: node.triggers, runningNode: runningNode) { (trigger) in
+            executeTrigger(blocks: trigger.actionBlocks, completion: {
                 runningNode.status = .terminated
                 print("    END NODE: \(node.name)")
                 completion()
@@ -85,12 +94,12 @@ class ScenarioManager {
     }
     
     static func testNodeLoop (triggers: [Trigger], runningNode: RunningNode, completion: @escaping (Trigger)->()){
-        ScenarioManager.testNode(triggers: triggers, runningNode: runningNode) { (trigger) in
+        testNode(triggers: triggers, runningNode: runningNode) { (trigger) in
             if let trigg = trigger {
                 completion(trigg)
             }else{
                 Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { (timer) in
-                    ScenarioManager.testNodeLoop(triggers: triggers, runningNode: runningNode, completion: completion)
+                    testNodeLoop(triggers: triggers, runningNode: runningNode, completion: completion)
                 })
             }
         }
@@ -106,7 +115,7 @@ class ScenarioManager {
                 if i != 0 {group.wait()}
                 group.enter()
                 if !runningNode.test{
-                    ScenarioManager.testTrigger(trigger: triggers[i], completion: { (res, trigger) in
+                    testTrigger(trigger: triggers[i], completion: { (res, trigger) in
                         //print("trigger test ended with res: \(res)")
                         runningNode.test = res
                         if res {
@@ -177,7 +186,7 @@ class ScenarioManager {
         
         let noAnchorScene = elements.filter{$0.startAnchors.isEmpty}
         let anchorExistScene = elements.filter{!$0.startAnchors.filter{exitAnchors.contains($0)}.isEmpty}
-        let initialStatusRunningSceneIds = ScenarioManager.getInitialStatusIds(runningElements: runningElements)
+        let initialStatusRunningSceneIds = getInitialStatusIds(runningElements: runningElements)
         let initialScenes = (noAnchorScene + anchorExistScene).filter{initialStatusRunningSceneIds.contains($0.id)}
         
         return initialScenes
@@ -207,7 +216,7 @@ class ScenarioManager {
     }
     
     static func loadRunningStatus(scenarioId: String) -> RunningScenario? {
-        guard let runningScenarioData = ScenarioManager.getRunningScenarioFromDefaults(scenarioId: scenarioId)
+        guard let runningScenarioData = getRunningScenarioFromDefaults(scenarioId: scenarioId)
             else{
                 return nil
         }
@@ -242,27 +251,27 @@ class ScenarioManager {
     }
     
     static func generateRunningScenario(scenario: Scenario, path: String = "") -> RunningScenario {
-        if let runningScenario = ScenarioManager.loadRunningStatus(scenarioId: scenario.id) {
+        if let runningScenario = loadRunningStatus(scenarioId: scenario.id) {
             runningScenario.scenes.filter{$0.status == .running}.forEach { $0.nodes.forEach{ $0.status = .initial}}
             print("RunningScenario loaded from Defaults")
             return runningScenario
         }else{
-            let runningScenario = ScenarioManager.createRunningScenario(scenario: scenario, path: path)
-            ScenarioManager.saveRunningStatus(runningScenario: runningScenario)
+            let runningScenario = createRunningScenario(scenario: scenario, path: path)
+            saveRunningStatus(runningScenario: runningScenario)
             print("RunningScenario created and saved")
             return runningScenario
         }
     }
     
     static func loadScenario (path: String) -> Scenario? {
-        guard let data = ScenarioManager.loadScenarioData(path: path),
-            let scenario = ScenarioManager.decodeScenario(json: data)
+        guard let data = loadScenarioData(path: path),
+            let scenario = decodeScenario(json: data)
             else {
                 return nil
         }
         
-        let runningScenario = ScenarioManager.generateRunningScenario(scenario: scenario, path: path)
-        ScenarioManager.saveRunningStatus(runningScenario: runningScenario)
+        let runningScenario = generateRunningScenario(scenario: scenario, path: path)
+        saveRunningStatus(runningScenario: runningScenario)
         
         return scenario
     }

@@ -53,7 +53,6 @@ class MainController {
                         return
                 }
                 runningScenario.exitAnchors.append(anchor)
-                print("      Add anchor \(anchor) to scenario \(scenarioId)")
             case .scene:
                 guard let scenarioId = userInfo["scenarioId"] as? String,
                     let sceneId = userInfo["sceneId"] as? String,
@@ -65,7 +64,6 @@ class MainController {
                 }
                 
                 runningScene.exitAnchors.append(anchor)
-                print("      Add anchor \(anchor) to scene \(sceneId)")
             }
         }
     }
@@ -81,6 +79,12 @@ class MainController {
         let runningScenario = ScenarioManager.generateRunningScenario(scenario: scenario, path: path)
         self.runningScenarios.append(runningScenario)
         ScenarioManager.runScenario(scenario: scenario, runningScenario: runningScenario)
+        
+    }
+    
+    func play () {
+        NotificationsManager.shared.run()
+        ScenarioManager.runAllScenario(scenarios: self.scenarios, runningScenarios: self.runningScenarios)
         
     }
     

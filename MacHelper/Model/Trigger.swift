@@ -22,8 +22,7 @@ struct Trigger: Decodable {
     }
     
     enum ConditionTypes: String, Decodable {
-        case script = "script"
-        case signal = "signal"
+        case script, signal
     }
     
     init(from decoder: Decoder) throws

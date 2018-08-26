@@ -58,7 +58,7 @@ class NotificationsManager {
         return self.signals.contains(signal)
     }
     
-    static func postNotification (name: NSNotification.Name, userInfo: [AnyHashable: Any]) {
+    static func postNotification (name: NSNotification.Name, userInfo: [String: Any]) {
         DistributedNotificationCenter.default().postNotificationName(name, object: nil, userInfo: userInfo, options: [.deliverImmediately, .postToAllSessions])
     }
     

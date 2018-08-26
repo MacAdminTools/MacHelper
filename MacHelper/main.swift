@@ -21,7 +21,7 @@ if CommandLine.arguments.count > 1 {
     case "-play":
         if let path = CommandLine.arguments[safe: 2] {
             let macHelper = MacHelper()
-            macHelper.run(path: path)
+            macHelper.play(path: path)
         }else{
             print("Path is missing")
             MacHelper.printUsage()
@@ -32,7 +32,7 @@ if CommandLine.arguments.count > 1 {
     }
 } else {
     let macHelper = MacHelper()
-    macHelper.run(path: "")
+    macHelper.play(path: "")
 }
 
 

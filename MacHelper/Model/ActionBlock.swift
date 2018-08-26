@@ -19,9 +19,7 @@ struct ActionBlock: Decodable {
     }
     
     enum ActionTypes: String, Decodable {
-        case script = "script"
-        case notification = "notification"
-        case addAnchor = "addAnchor"
+        case script, notification, addAnchor
     }
     
     enum ActionTypeKey: String, CodingKey {
