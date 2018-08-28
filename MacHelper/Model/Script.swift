@@ -20,12 +20,15 @@ struct Script: Condition, Action {
         ScriptManager.test(script: self.script, lang: self.language, type: self.scriptType, user: self.user, out: { out in
             if out != "" {
                 //LogManager.shared.log(line: "condition : \(self.title)\nOut: \(out)", logType: .events)
+                print("      CONDITION: \(self.name), out: \(out)")
             }
         }, err: { err in
             if err != "" {
+                print("      CONDITION: \(self.name), error: \(err)")
                 //LogManager.shared.log(line: "condition : \(self.title)\nError: \(err)", logType: .events)
             }
         }, completion: { res in
+            print("      CONDITION: \(self.name), completion: \(res)")
             //LogManager.shared.log(line: "condition : \(self.title) \(res ? "✓":"✗")", logType: .events)
             completion(res)
         })

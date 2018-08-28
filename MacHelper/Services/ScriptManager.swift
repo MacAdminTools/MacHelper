@@ -9,7 +9,7 @@
 import Foundation
 
 enum ScriptLanguage: String, Decodable {
-    case bash, python
+    case bash, python, applescript
 }
 
 enum ScriptType: String, Decodable {
@@ -51,6 +51,9 @@ struct ScriptManager {
                     //LogManager.shared.log(line: "username not initiated while trying to use it")
                 }
             }
+        case .applescript:
+            command = "/usr/bin/osascript"
+            args = ["-e", script]
         }
         
         ScriptManager.runTask(command: command, arguments: args, outCompletion: { outStr in

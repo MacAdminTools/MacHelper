@@ -13,6 +13,9 @@ extension Notification.Name {
     static let ElementTerminated = Notification.Name("ch.altab.MacHelper.ElementTerminated")
     static let HostNotification = Notification.Name("ch.altab.MacHelper.HostNotification")
     static let AddAnchor = Notification.Name("ch.altab.MacHelper.AddAnchor")
+    static let ResetElement = Notification.Name("ch.altab.MacHelper.ResetElement")
+    static let ResetAnchors = Notification.Name("ch.altab.MacHelper.ResetAnchors")
+    static let ResetSignals = Notification.Name("ch.altab.MacHelper.ResetSignals")
 }
 
 extension Collection {

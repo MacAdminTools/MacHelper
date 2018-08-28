@@ -36,7 +36,6 @@ class MacHelper {
             MainController.shared.play(path: path)
         }
         
-        
         while !shouldQuit {
             RunLoop.current.run(until: Date(timeIntervalSinceNow: shouldQuitCheckInterval))
         }

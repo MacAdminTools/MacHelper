@@ -20,6 +20,18 @@ class NotificationsManager {
     }
     
     func run() {
+        
+        /*NotificationCenter.default.addObserver(forName: .ResetSignals, object: nil, queue: nil) { (notification) in
+            guard let userInfo = notification.userInfo,
+                let signals = userInfo["signals"] as? [String]
+                else{
+                    print("Error: Notification content not recognized")
+                    return
+            }
+            
+            NotificationsManager.shared.removeSignals(signals: signals)
+        }*/
+        
         self.registerForNotification(name: .HostNotification) { dic in
             guard let type = dic["type"] as? String
                 else {
@@ -29,7 +41,7 @@ class NotificationsManager {
             switch type {
             case "signal":
                 if let name = dic["name"] as? String {
-                    print("      Signal received: \(name)")
+                    print("      SIGNAL: received: \(name)")
                     //LogManager.shared.log(line: "Signal received: \(name)")
                     self.addSignal(signal: name)
                 }
@@ -56,6 +68,10 @@ class NotificationsManager {
     
     func isSignal (signal: String) -> Bool {
         return self.signals.contains(signal)
+    }
+    
+    func removeSignals(signals: [String]){
+        self.signals = Array(Set(self.signals).subtracting(signals))
     }
     
     static func postNotification (name: NSNotification.Name, userInfo: [String: Any]) {

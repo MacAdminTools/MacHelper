@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4E279D89212F8DF700308422 /* AddAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E279D88212F8DF700308422 /* AddAnchor.swift */; };
 		4E279D8B21311C8B00308422 /* ScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E279D8A21311C8B00308422 /* ScriptManager.swift */; };
+		4E281813213350C80035DF76 /* ResetElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E281812213350C80035DF76 /* ResetElement.swift */; };
+		4E28181521337E6D0035DF76 /* ResetAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E28181421337E6D0035DF76 /* ResetAnchors.swift */; };
+		4E281817213425C00035DF76 /* ResetSignals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E281816213425C00035DF76 /* ResetSignals.swift */; };
+		4E2818192135E22E0035DF76 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4E2818182135E22D0035DF76 /* README.md */; };
 		4E7CFA3921228FBF0076B79D /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA3821228FBF0076B79D /* Signal.swift */; };
 		4E7CFA3A21228FBF0076B79D /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA3821228FBF0076B79D /* Signal.swift */; };
 		4E7CFA3C212293340076B79D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA3B212293340076B79D /* Action.swift */; };
@@ -71,6 +75,10 @@
 /* Begin PBXFileReference section */
 		4E279D88212F8DF700308422 /* AddAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnchor.swift; sourceTree = "<group>"; };
 		4E279D8A21311C8B00308422 /* ScriptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptManager.swift; sourceTree = "<group>"; };
+		4E281812213350C80035DF76 /* ResetElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetElement.swift; sourceTree = "<group>"; };
+		4E28181421337E6D0035DF76 /* ResetAnchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetAnchors.swift; sourceTree = "<group>"; };
+		4E281816213425C00035DF76 /* ResetSignals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetSignals.swift; sourceTree = "<group>"; };
+		4E2818182135E22D0035DF76 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4E7CFA3821228FBF0076B79D /* Signal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signal.swift; sourceTree = "<group>"; };
 		4E7CFA3B212293340076B79D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		4E7CFA4221229B9A0076B79D /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
@@ -142,6 +150,7 @@
 		4EED0DA5211E6D6B00B188D3 = {
 			isa = PBXGroup;
 			children = (
+				4E2818182135E22D0035DF76 /* README.md */,
 				4EED0DB0211E6D6B00B188D3 /* MacHelper */,
 				4EED0DD2211E7AB300B188D3 /* MacHelperTest */,
 				4E7CFA52212E0B4F0076B79D /* MacHelperNotifier */,
@@ -186,6 +195,9 @@
 				4E7CFA3821228FBF0076B79D /* Signal.swift */,
 				4E7CFA4221229B9A0076B79D /* AppNotification.swift */,
 				4E279D88212F8DF700308422 /* AddAnchor.swift */,
+				4E281812213350C80035DF76 /* ResetElement.swift */,
+				4E28181421337E6D0035DF76 /* ResetAnchors.swift */,
+				4E281816213425C00035DF76 /* ResetSignals.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E2818192135E22E0035DF76 /* README.md in Resources */,
 				4EED0DDA211E7C1300B188D3 /* scenario.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +346,8 @@
 			files = (
 				4E279D89212F8DF700308422 /* AddAnchor.swift in Sources */,
 				4EED0DB2211E6D6B00B188D3 /* main.swift in Sources */,
+				4E28181521337E6D0035DF76 /* ResetAnchors.swift in Sources */,
+				4E281813213350C80035DF76 /* ResetElement.swift in Sources */,
 				4E7CFA3C212293340076B79D /* Action.swift in Sources */,
 				4E7CFA4321229B9A0076B79D /* AppNotification.swift in Sources */,
 				4E7CFA3921228FBF0076B79D /* Signal.swift in Sources */,
@@ -346,6 +361,7 @@
 				4EED0DE82121D2E600B188D3 /* Trigger.swift in Sources */,
 				4EED0DB9211E6EFA00B188D3 /* MacHelper.swift in Sources */,
 				4EED0DBB211E733500B188D3 /* Constant.swift in Sources */,
+				4E281817213425C00035DF76 /* ResetSignals.swift in Sources */,
 				4EED0DE6211F48C700B188D3 /* Node.swift in Sources */,
 				4EED0DEA2122587700B188D3 /* ActionBlock.swift in Sources */,
 				4EED0DEC2122591A00B188D3 /* Condition.swift in Sources */,

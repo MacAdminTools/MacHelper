@@ -86,7 +86,7 @@ class ScenarioManager {
         print("    START NODE: \(node.name)")
         testNodeLoop(triggers: node.triggers, runningNode: runningNode) { (trigger) in
             executeTrigger(blocks: trigger.actionBlocks, completion: {
-                runningNode.status = .terminated
+                if runningNode.status == .running {runningNode.status = .terminated}
                 print("    END NODE: \(node.name)")
                 completion()
             })
@@ -120,22 +120,22 @@ class ScenarioManager {
                         runningNode.test = res
                         if res {
                             completion(trigger)
-                        }else{
-                            if i == triggers.count-1 {
-                                completion(nil)
-                            }
                         }
-                        
                         group.leave()
                     })
                 }
+            }
+        }
+        
+        group.notify(queue: .main) {
+            if !runningNode.test {
+                completion(nil)
             }
         }
     }
     
     static func executeTrigger (blocks: [ActionBlock], completion:@escaping ()->()){
         let actionGroup = DispatchGroup()
-        
         for actionBlock in blocks {
             actionGroup.enter()
             DispatchQueue.global(qos: .default).async {
@@ -144,7 +144,6 @@ class ScenarioManager {
                 })
             }
         }
-        
         actionGroup.notify(queue: .main) {
             completion()
         }
