@@ -35,7 +35,6 @@
 		4EED0DBE211E73B300B188D3 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBD211E73B300B188D3 /* Scenario.swift */; };
 		4EED0DC0211E75DF00B188D3 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBF211E75DF00B188D3 /* Scene.swift */; };
 		4EED0DD4211E7AB300B188D3 /* MacHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DD3211E7AB300B188D3 /* MacHelperTest.swift */; };
-		4EED0DDA211E7C1300B188D3 /* scenario.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EED0DD9211E7C1300B188D3 /* scenario.plist */; };
 		4EED0DDB211E7C1A00B188D3 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBD211E73B300B188D3 /* Scenario.swift */; };
 		4EED0DDC211E7D7200B188D3 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBF211E75DF00B188D3 /* Scene.swift */; };
 		4EED0DDF211E7F0D00B188D3 /* ScenarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DDE211E7F0D00B188D3 /* ScenarioManager.swift */; };
@@ -96,7 +95,6 @@
 		4EED0DD1211E7AB300B188D3 /* MacHelperTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacHelperTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EED0DD3211E7AB300B188D3 /* MacHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHelperTest.swift; sourceTree = "<group>"; };
 		4EED0DD5211E7AB300B188D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EED0DD9211E7C1300B188D3 /* scenario.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = scenario.plist; sourceTree = "<group>"; };
 		4EED0DDE211E7F0D00B188D3 /* ScenarioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioManager.swift; sourceTree = "<group>"; };
 		4EED0DE5211F48C700B188D3 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		4EED0DE72121D2E600B188D3 /* Trigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 		4EED0DD2211E7AB300B188D3 /* MacHelperTest */ = {
 			isa = PBXGroup;
 			children = (
-				4EED0DD9211E7C1300B188D3 /* scenario.plist */,
 				4EED0DD3211E7AB300B188D3 /* MacHelperTest.swift */,
 				4EED0DD5211E7AB300B188D3 /* Info.plist */,
 			);
@@ -322,7 +319,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E2818192135E22E0035DF76 /* README.md in Resources */,
-				4EED0DDA211E7C1300B188D3 /* scenario.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

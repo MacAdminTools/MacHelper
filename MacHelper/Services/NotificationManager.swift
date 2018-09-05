@@ -21,17 +21,6 @@ class NotificationsManager {
     
     func run() {
         
-        /*NotificationCenter.default.addObserver(forName: .ResetSignals, object: nil, queue: nil) { (notification) in
-            guard let userInfo = notification.userInfo,
-                let signals = userInfo["signals"] as? [String]
-                else{
-                    print("Error: Notification content not recognized")
-                    return
-            }
-            
-            NotificationsManager.shared.removeSignals(signals: signals)
-        }*/
-        
         self.registerForNotification(name: .HostNotification) { dic in
             guard let type = dic["type"] as? String
                 else {
