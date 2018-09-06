@@ -17,7 +17,7 @@ class MacHelperNotifier {
     }
     
     static func getRunningScenarioFromDefaults (scenarioId: String) -> Data? {
-        guard let scenarioData = UserDefaults.standard.data(forKey: scenarioId)
+        guard let defaults = UserDefaults.init(suiteName: "MacHelper"), let scenarioData = defaults.data(forKey: scenarioId)
             else{
                 print("scenario not available in defaults")
                 return nil
