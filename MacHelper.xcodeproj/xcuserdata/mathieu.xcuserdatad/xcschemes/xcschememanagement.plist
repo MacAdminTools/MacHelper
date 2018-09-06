@@ -4,17 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MH load.xcscheme</key>
+		<key>MH load.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>MH play.xcscheme</key>
+		<key>MH play.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>MHNotifier status.xcscheme</key>
+		<key>MHNotifier status.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
