@@ -10,7 +10,11 @@ The **MacHelper** is a command line application to execute scenarios requiring u
 - A enterprise tool to manage scenarios and for common tasks in companies based on a Microsoft network.
 
 
-The current version is working and a test package is available for testing. The package contains a scenario, an application called Assistant.app (code is available on my GitHub) and assets files. This scenario is a simple demo displaying TextEdit.app, waiting for the user to write "hello" and save the file. If the user writes the correct test, it displays a success message, otherwise it displays a fail message and starts the scenario again.
+The current version is working and a test package is available for testing:  
+
+<https://github.com/MacAdminTools/MacHelper/releases/tag/v0.8>
+
+The package contains a scenario, an application called Assistant.app (code is available on my GitHub) and assets files. This scenario is a simple demo displaying TextEdit.app, waiting for the user to write "hello" and save the file. If the user writes the correct test, it displays a success message, otherwise it displays a fail message and starts the scenario again.
 
 
 ## Principles
