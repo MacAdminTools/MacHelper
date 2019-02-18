@@ -10,7 +10,9 @@ import Foundation
 
 struct AppNotification: Action {
     
+    let id: String
     let name: String
+    let bundleId: String
     let userInfo: [String: Any]
     
     func launch(completion: @escaping (Int) -> Void) {
@@ -20,12 +22,14 @@ struct AppNotification: Action {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case name, userInfo
+        case id, name, bundleId, userInfo
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(String.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
+        bundleId = try values.decode(String.self, forKey: .bundleId)
         userInfo = try values.decode([String: Any].self, forKey: .userInfo)
     }
     

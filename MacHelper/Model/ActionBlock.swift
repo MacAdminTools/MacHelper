@@ -10,16 +10,17 @@ import Foundation
 
 struct ActionBlock: Decodable {
     
+    let id: String
     let action: Action
     let actionBlocks: [ActionBlock]
     let parentCode: Int
     
     enum CodingKeys: String, CodingKey {
-        case action, actionBlocks, parentCode
+        case action, actionBlocks, parentCode, id
     }
     
     enum ActionTypes: String, Decodable {
-        case script, notification, addAnchor, resetElement, resetAnchors, resetSignals
+        case script, notification, addAnchor, reset
     }
     
     enum ActionTypeKey: String, CodingKey {
@@ -39,18 +40,12 @@ struct ActionBlock: Decodable {
             action = try container.decode(AppNotification.self, forKey: .action)
         case .addAnchor:
             action = try container.decode(AddAnchor.self, forKey: .action)
-        case .resetElement:
-            action = try container.decode(ResetElement.self, forKey: .action)
-        case .resetAnchors:
-            action = try container.decode(ResetAnchors.self, forKey: .action)
-        case .resetSignals:
-            action = try container.decode(ResetSignals.self, forKey: .action)
+        case .reset:
+            action = try container.decode(Reset.self, forKey: .action)
         }
-        
+        id = try container.decode(String.self, forKey: .id)
         actionBlocks = try container.decode([ActionBlock].self, forKey: .actionBlocks)
-        parentCode = try container.decode(Int.self, forKey: .parentCode)
-        //print(self.action)
-        
+        parentCode = try container.decode(Int.self, forKey: .parentCode)        
     }
     
 }

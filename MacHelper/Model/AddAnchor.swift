@@ -10,9 +10,11 @@ import Foundation
 
 struct AddAnchor: Action {
     
+    let id: String
     let name: String
     let scenarioId: String
     let sceneId: String
+    let anchor: String
     
     func launch(completion: @escaping (Int) -> Void){
         if sceneId == "" {
@@ -23,5 +25,18 @@ struct AddAnchor: Action {
             print("      ACTION: Add anchor \(name) to scene \(sceneId)")
         }
         completion(0)
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, name, scenarioId, sceneId, anchor
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(String.self, forKey: .id)
+        name = try values.decode(String.self, forKey: .name)
+        scenarioId = try values.decode(String.self, forKey: .scenarioId)
+        sceneId = try values.decode(String.self, forKey: .sceneId)
+        anchor = try values.decode(String.self, forKey: .anchor)
     }
 }

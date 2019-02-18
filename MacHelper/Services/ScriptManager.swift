@@ -13,7 +13,7 @@ enum ScriptLanguage: String, Decodable {
 }
 
 enum ScriptType: String, Decodable {
-    case condition, script, scriptUser
+    case condition, action
 }
 
 enum UserType: String, Decodable {

@@ -10,11 +10,13 @@ import Foundation
 
 struct Trigger: Decodable {
     
+    let id: String
+    let name: String
     var conditions: [Condition]
     var actionBlocks: [ActionBlock]
     
     enum CodingKeys: CodingKey {
-        case conditions, actionBlocks
+        case id, name, conditions, actionBlocks
     }
     
     enum ConditionTypeKey: CodingKey {
@@ -30,6 +32,8 @@ struct Trigger: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         conditions = try Trigger.decodeConditions(container: container)
         actionBlocks = try container.decode([ActionBlock].self, forKey: .actionBlocks)
+        id = try container.decode(String.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
         
     }
     

@@ -11,8 +11,8 @@ import Foundation
 struct Node: Codable, SceneAndNode, SearchElement {
     
     let id: String
-    var triggers: [Trigger]
     let name: String
+    var triggers: [Trigger]
     let startAnchors: [String]
     
     func encode(to encoder: Encoder) throws {
@@ -21,4 +21,15 @@ struct Node: Codable, SceneAndNode, SearchElement {
         try container.encode(id, forKey: .id)
     }
     
+    private enum CodingKeys: String, CodingKey {
+        case id, nodes, name, startAnchors
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name = try values.decode(String.self, forKey: .name)
+        id = try values.decode(String.self, forKey: .id)
+        triggers = try values.decode([Trigger].self, forKey: .nodes)
+        startAnchors = try values.decode([String].self, forKey: .startAnchors)
+    }
 }

@@ -21,10 +21,11 @@ class ScenarioManager {
     }
     
     static func decodeScenario (json: Data) -> Scenario? {
-        
-        let decoder = PropertyListDecoder()
+        let decoder1 = JSONDecoder()
+        //let decoder = PropertyListDecoder()
         do {
-            let scenario = try decoder.decode(Scenario.self, from: json)
+            let scenario = try decoder1.decode(Scenario.self, from: json)
+            print(scenario)
             return scenario
         }catch{
             print("Error info: \(error)")

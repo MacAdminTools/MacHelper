@@ -10,7 +10,9 @@ import Foundation
 
 struct Signal: Condition {
     
+    let id: String
     let name: String
+    let signal: String
 
     func test(completion: @escaping (Bool) -> Void) {
         let res = NotificationsManager.shared.isSignal(signal: self.name)
@@ -18,12 +20,14 @@ struct Signal: Condition {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case name
+        case id, name, signal
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(String.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
+        signal = try values.decode(String.self, forKey: .signal)
     }
     
 }

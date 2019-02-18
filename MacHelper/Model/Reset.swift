@@ -1,15 +1,17 @@
 //
-//  ResetElement.swift
+//  Reset.swift
 //  MacHelper
 //
-//  Created by mathieu on 26.08.18.
-//  Copyright © 2018 altab. All rights reserved.
+//  Created by mathieu on 27.01.19.
+//  Copyright © 2019 altab. All rights reserved.
 //
 
 import Foundation
 
-struct ResetElement: Action {
+struct Reset: Action {
     
+    let id: String
+    let name: String
     let scenarioId: String
     let sceneId: String
     let nodeId: String
@@ -26,7 +28,7 @@ struct ResetElement: Action {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case scenarioId, sceneId, nodeId
+        case id, name, scenarioId, sceneId, nodeId
     }
     
     init(from decoder: Decoder) throws {
@@ -34,5 +36,7 @@ struct ResetElement: Action {
         scenarioId = try values.decode(String.self, forKey: .scenarioId)
         sceneId = try values.decode(String.self, forKey: .sceneId)
         nodeId = try values.decode(String.self, forKey: .nodeId)
+        id = try values.decode(String.self, forKey: .id)
+        name = try values.decode(String.self, forKey: .name)
     }
 }

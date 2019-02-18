@@ -10,14 +10,15 @@ import Foundation
 
 struct Script: Condition, Action {
     
+    let id: String
     let name: String
     let language: ScriptLanguage
     let script: String
-    let user: UserType
+    let runAs: UserType
     let scriptType: ScriptType
     
     func test(completion: @escaping (Bool) -> Void) {
-        ScriptManager.test(script: self.script, lang: self.language, type: self.scriptType, user: self.user, out: { out in
+        ScriptManager.test(script: self.script, lang: self.language, type: self.scriptType, user: self.runAs, out: { out in
             if out != "" {
                 //LogManager.shared.log(line: "condition : \(self.title)\nOut: \(out)", logType: .events)
                 print("      CONDITION: \(self.name), out: \(out)")
@@ -53,15 +54,16 @@ struct Script: Condition, Action {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case name, script, language, user, scriptType
+        case id, name, script, language, runAs, scriptType
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(String.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         script = try values.decode(String.self, forKey: .script)
         language = try values.decode(ScriptLanguage.self, forKey: .language)
-        user = try values.decode(UserType.self, forKey: .user)
+        runAs = try values.decode(UserType.self, forKey: .runAs)
         scriptType = try values.decode(ScriptType.self, forKey: .scriptType)
     }
     
