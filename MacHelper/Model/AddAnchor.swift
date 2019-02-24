@@ -18,11 +18,11 @@ struct AddAnchor: Action {
     
     func launch(completion: @escaping (Int) -> Void){
         if sceneId == "" {
-            NotificationCenter.default.post(name: .AddAnchor, object: nil, userInfo: ["type": NotificationElement.scenario, "scenarioId": scenarioId, "anchor": name])
-            print("      ACTION: Add anchor \(name) to scenario \(scenarioId)")
+            NotificationCenter.default.post(name: .AddAnchor, object: nil, userInfo: ["type": NotificationElement.scenario, "scenarioId": scenarioId, "anchor": anchor])
+            print("      ACTION: Add anchor \(anchor) to scenario \(scenarioId)")
         }else{
-            NotificationCenter.default.post(name: .AddAnchor, object: nil, userInfo: ["type": NotificationElement.scene, "scenarioId": scenarioId, "sceneId": sceneId, "anchor": name])
-            print("      ACTION: Add anchor \(name) to scene \(sceneId)")
+            NotificationCenter.default.post(name: .AddAnchor, object: nil, userInfo: ["type": NotificationElement.scene, "scenarioId": scenarioId, "sceneId": sceneId, "anchor": anchor])
+            print("      ACTION: Add anchor \(anchor) to scene \(sceneId)")
         }
         completion(0)
     }

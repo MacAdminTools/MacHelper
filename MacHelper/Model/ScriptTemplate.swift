@@ -1,20 +1,21 @@
 //
-//  Script.swift
+//  ScriptTemplate.swift
 //  MacHelper
 //
-//  Created by mathieu on 14.08.18.
-//  Copyright © 2018 altab. All rights reserved.
+//  Created by mathieu on 18.02.19.
+//  Copyright © 2019 altab. All rights reserved.
 //
 
 import Foundation
 
-struct Script: Condition, Action {
+struct ScriptTemplate: Condition, Action {
     
     let id: String
     let name: String
     let language: ScriptLanguage
     let script: String
     let runAs: UserType
+    let not: Bool
     
     func test(completion: @escaping (Bool) -> Void) {
         ScriptManager.test(script: self.script, lang: self.language, user: self.runAs, out: { out in
@@ -28,9 +29,9 @@ struct Script: Condition, Action {
                 //LogManager.shared.log(line: "condition : \(self.title)\nError: \(err)", logType: .events)
             }
         }, completion: { res in
-            print("      CONDITION: \(self.name), completion: \(res)")
+            print("      CONDITION: \(self.name), completion: \(self.not ? !res: res)")
             //LogManager.shared.log(line: "condition : \(self.title) \(res ? "✓":"✗")", logType: .events)
-            completion(res)
+            completion(self.not ? !res: res)
         })
     }
     
@@ -53,16 +54,21 @@ struct Script: Condition, Action {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case id, name, script, language, runAs
+        case id, name, script, language, runAs, args, not
     }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(String.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
-        script = try values.decode(String.self, forKey: .script)
+        var script = try values.decode(String.self, forKey: .script)
         language = try values.decode(ScriptLanguage.self, forKey: .language)
         runAs = try values.decode(UserType.self, forKey: .runAs)
+        let args = try values.decode([String:String].self, forKey: .args)
+        for (key, value) in args {
+            script = script.replacingOccurrences(of: "{{"+key+"}}", with: value)
+        }
+        self.script = script
+        self.not = try values.decode(Bool.self, forKey: .not)
     }
-    
 }

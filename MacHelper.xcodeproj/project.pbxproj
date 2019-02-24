@@ -30,6 +30,7 @@
 		4E7CFA5A212E0C2C0076B79D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7CFA4A212D07CD0076B79D /* NotificationManager.swift */; };
 		4E7CFA5B212E0C610076B79D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBA211E733500B188D3 /* Constant.swift */; };
 		4EE41D1C21FD363B00C910F2 /* Reset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D1B21FD363B00C910F2 /* Reset.swift */; };
+		4EE41D1E221A833B00C910F2 /* ScriptTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE41D1D221A833B00C910F2 /* ScriptTemplate.swift */; };
 		4EED0DB2211E6D6B00B188D3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DB1211E6D6B00B188D3 /* main.swift */; };
 		4EED0DB9211E6EFA00B188D3 /* MacHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DB8211E6EFA00B188D3 /* MacHelper.swift */; };
 		4EED0DBB211E733500B188D3 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED0DBA211E733500B188D3 /* Constant.swift */; };
@@ -88,6 +89,7 @@
 		4E7CFA53212E0B4F0076B79D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4E7CFA58212E0BC90076B79D /* MacHelperNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHelperNotifier.swift; sourceTree = "<group>"; };
 		4EE41D1B21FD363B00C910F2 /* Reset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reset.swift; sourceTree = "<group>"; };
+		4EE41D1D221A833B00C910F2 /* ScriptTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTemplate.swift; sourceTree = "<group>"; };
 		4EED0DAE211E6D6B00B188D3 /* MacHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EED0DB1211E6D6B00B188D3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4EED0DB8211E6EFA00B188D3 /* MacHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacHelper.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				4E28181421337E6D0035DF76 /* ResetAnchors.swift */,
 				4E281816213425C00035DF76 /* ResetSignals.swift */,
 				4EE41D1B21FD363B00C910F2 /* Reset.swift */,
+				4EE41D1D221A833B00C910F2 /* ScriptTemplate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				4E279D89212F8DF700308422 /* AddAnchor.swift in Sources */,
 				4EE41D1C21FD363B00C910F2 /* Reset.swift in Sources */,
 				4EED0DB2211E6D6B00B188D3 /* main.swift in Sources */,
+				4EE41D1E221A833B00C910F2 /* ScriptTemplate.swift in Sources */,
 				4E28181521337E6D0035DF76 /* ResetAnchors.swift in Sources */,
 				4E281813213350C80035DF76 /* ResetElement.swift in Sources */,
 				4E7CFA3C212293340076B79D /* Action.swift in Sources */,

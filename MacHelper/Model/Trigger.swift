@@ -24,7 +24,7 @@ struct Trigger: Decodable {
     }
     
     enum ConditionTypes: String, Decodable {
-        case script, signal
+        case script, signal, scriptTemplate
     }
     
     init(from decoder: Decoder) throws
@@ -51,6 +51,8 @@ struct Trigger: Decodable {
                 conditions.append(try conditionsArray.decode(Script.self))
             case .signal:
                 conditions.append(try conditionsArray.decode(Signal.self))
+            case .scriptTemplate:
+                conditions.append(try conditionsArray.decode(ScriptTemplate.self))
             }
         }
         

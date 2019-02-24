@@ -13,14 +13,14 @@ struct ActionBlock: Decodable {
     let id: String
     let action: Action
     let actionBlocks: [ActionBlock]
-    let parentCode: Int
+    let parentExitCode: Int
     
     enum CodingKeys: String, CodingKey {
-        case action, actionBlocks, parentCode, id
+        case action, actionBlocks, parentExitCode, id
     }
     
     enum ActionTypes: String, Decodable {
-        case script, notification, addAnchor, reset
+        case script, notification, addAnchor, reset, scriptTemplate
     }
     
     enum ActionTypeKey: String, CodingKey {
@@ -42,10 +42,12 @@ struct ActionBlock: Decodable {
             action = try container.decode(AddAnchor.self, forKey: .action)
         case .reset:
             action = try container.decode(Reset.self, forKey: .action)
+        case .scriptTemplate:
+            action = try container.decode(ScriptTemplate.self, forKey: .action)
         }
         id = try container.decode(String.self, forKey: .id)
         actionBlocks = try container.decode([ActionBlock].self, forKey: .actionBlocks)
-        parentCode = try container.decode(Int.self, forKey: .parentCode)        
+        parentExitCode = try container.decode(Int.self, forKey: .parentExitCode)        
     }
     
 }

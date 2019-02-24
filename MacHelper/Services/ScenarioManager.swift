@@ -25,7 +25,6 @@ class ScenarioManager {
         //let decoder = PropertyListDecoder()
         do {
             let scenario = try decoder1.decode(Scenario.self, from: json)
-            print(scenario)
             return scenario
         }catch{
             print("Error info: \(error)")
@@ -153,7 +152,7 @@ class ScenarioManager {
     static func runActionBlock(actionBlock: ActionBlock, completion: @escaping (Int) -> Void) {
         actionBlock.action.launch { code in
             if !actionBlock.actionBlocks.isEmpty {
-                executeTrigger(blocks: actionBlock.actionBlocks.filter{ $0.parentCode == code || $0.parentCode == -1 }, completion: {
+                executeTrigger(blocks: actionBlock.actionBlocks.filter{ $0.parentExitCode == code || $0.parentExitCode == -1 }, completion: {
                     completion(code)
                 })
             } else {

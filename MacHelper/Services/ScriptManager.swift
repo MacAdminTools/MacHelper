@@ -12,10 +12,6 @@ enum ScriptLanguage: String, Decodable {
     case bash, python, applescript
 }
 
-enum ScriptType: String, Decodable {
-    case condition, action
-}
-
 enum UserType: String, Decodable {
     case root, user
 }
@@ -24,7 +20,7 @@ struct ScriptManager {
     
     static var username: String?
     
-    static func test (script: String, lang: ScriptLanguage, type: ScriptType, user: UserType = .root,
+    static func test (script: String, lang: ScriptLanguage, user: UserType = .root,
                       out: @escaping (String) -> Void, err: @escaping (String) -> Void, completion: @escaping (Bool) -> Void) {
         
         var args = ["-c"]
@@ -32,11 +28,7 @@ struct ScriptManager {
         
         switch lang {
         case .bash:
-            if type == .condition {
-                args.append("`"+script+"`")
-            } else {
-                args.append(script)
-            }
+            args.append(script)
         case .python:
             
             if user == .root {
@@ -55,6 +47,8 @@ struct ScriptManager {
             command = "/usr/bin/osascript"
             args = ["-e", script]
         }
+        
+        //print(args)
         
         ScriptManager.runTask(command: command, arguments: args, outCompletion: { outStr in
             out(outStr)
