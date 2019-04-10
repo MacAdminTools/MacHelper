@@ -16,7 +16,7 @@ struct AppNotification: Action {
     let userInfo: [String: Any]
     
     func launch(completion: @escaping (Int) -> Void) {
-        NotificationsManager.postNotification(name: NSNotification.Name(self.name), userInfo: userInfo)
+        NotificationsManager.postNotification(name: NSNotification.Name(self.bundleId), userInfo: userInfo)
         print("      ACTION: \(self.name), completion: 0")
         completion(0)
     }
